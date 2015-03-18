@@ -82,7 +82,7 @@ public class Tab implements View.OnTouchListener {
 
 			background = (RevealColorView) completeView
 					.findViewById(R.id.reveal);
-			selectorIV = (ImageView) completeView.findViewById(R.id.selector);
+			selectorIV = (ImageView) completeView.findViewById(R.id.selectorIV);
 
 		}
 		// set the listener

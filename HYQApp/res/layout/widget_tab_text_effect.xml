@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-    <at.markushi.ui.RevealColorView
+    <com.hyq.widget.RevealColorView
 		android:id="@+id/reveal"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" />
@@ -17,7 +17,7 @@
 	     android:textSize="@dimen/tabText" />
 	 
 	 <ImageView
-	     android:id="@+id/selector"
+	     android:id="@+id/selectorIV"
 	     android:layout_width="match_parent"
 	     android:layout_height="@dimen/tabSelectorHeight"
 	     android:layout_gravity="bottom" />

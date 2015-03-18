@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.hyqapp.R;
 
-public class TestFragment extends BaseFragment{
+public class TestFragment2 extends BaseFragment{
 	private View rootView;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
