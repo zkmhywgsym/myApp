@@ -1,6 +1,9 @@
 package com.hyq.activity;
 
+import java.util.ArrayList;
+import java.util.List;
 
+import com.hyq.fragment.BaseFragment;
 import com.hyq.fragment.TestFragment;
 import com.hyq.widget.TabHost;
 import com.hyqapp.R;
@@ -15,63 +18,71 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.Window;
 import android.view.WindowManager;
+
 //Ê×Ò³
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
 	private ViewPager pager;
 	private TabHost tabHost;
+	private List<BaseFragment> fragments = new ArrayList<BaseFragment>();
 	private ViewPagerAdapter pagerAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main_layout);
 		initView();
 	}
-	private void initView(){
-		 pager = (ViewPager) this.findViewById(R.id.pager);
-		 FragmentManager fm=getSupportFragmentManager();
-		 FragmentTransaction transaction=fm.beginTransaction();
-		 System.out.println("init");
-		 addFragment(transaction);
-		 transaction.commit();
-		 System.out.println("commit");
-//		 pagerAdapter = new ViewPagerAdapter(fm);
-//	        pager.setAdapter(pagerAdapter);
-//	        pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {//·­Ò³
-//	            @Override
-//	            public void onPageSelected(int position) {
-//	                // when user do a swipe the selected tab change
-//	                tabHost.setSelectedTab(position);
-//	            }
-//	        });
+
+	private void initView() {
+		pager = (ViewPager) this.findViewById(R.id.pager);
+		FragmentManager fm = getSupportFragmentManager();
+		FragmentTransaction transaction = fm.beginTransaction();
+		addFragment(transaction);
+		transaction.commit();
+		pagerAdapter = new ViewPagerAdapter(fm, fragments);
+		pager.setAdapter(pagerAdapter);
+		pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {// ·­Ò³
+			@Override
+			public void onPageSelected(int position) {
+				// when user do a swipe the selected tab change
+				tabHost.setSelectedTab(position);
+			}
+		});
 	}
-	//Ìí¼Ófragment
-	private void addFragment(FragmentTransaction transaction){
-		transaction.replace(R.id.linear,new TestFragment());
+
+	// Ìí¼Ófragment
+	private void addFragment(FragmentTransaction transaction) {
+		BaseFragment fragment = new TestFragment();
+		transaction.add(R.id.linear, fragment);
+		fragments.add(fragment);
 	}
 }
-class ViewPagerAdapter extends FragmentStatePagerAdapter {
-	private FragmentManager fm;
 
-	public ViewPagerAdapter(FragmentManager fm) {
+class ViewPagerAdapter extends FragmentStatePagerAdapter {
+	private List<BaseFragment> fragments;
+
+	public ViewPagerAdapter(FragmentManager fm, List<BaseFragment> fragments) {
 		super(fm);
-		this.fm=fm;
+		this.fragments = fragments;
 	}
 
 	@Override
 	public Fragment getItem(int index) {
-		return fm.findFragmentById(index);
+		return fragments.get(index);
 	}
 
 	@Override
 	public int getCount() {
-		return fm.getFragments().size();
+		return fragments.size();
 	}
+
 	@Override
 	public CharSequence getPageTitle(int position) {
-		return fm.findFragmentById(position).getTag();
+		return fragments.get(position).name;
 	}
-	
+
 }
