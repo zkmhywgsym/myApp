@@ -1,0 +1,6 @@
+<resources>
+    <!-- 选项卡选中标志 -->
+    <dimen name="tabSelectorHeight">2dp</dimen>
+    <!-- 选项卡字体 -->
+    <dimen name="tabText">14sp</dimen>
+</resources>
