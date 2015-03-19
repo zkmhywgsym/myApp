@@ -3,4 +3,7 @@
     <dimen name="tabSelectorHeight">2dp</dimen>
     <!-- 选项卡字体 -->
     <dimen name="tabText">14sp</dimen>
+        
+    <!-- 左菜单宽 -->
+    <dimen name="navdrawer_width">260dp</dimen>
 </resources>

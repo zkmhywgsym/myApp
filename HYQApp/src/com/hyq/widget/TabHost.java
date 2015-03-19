@@ -226,9 +226,7 @@ public class TabHost extends RelativeLayout implements View.OnClickListener {
                         View view = new View(layout.getContext());
                         view.setMinimumWidth((int) (60 * density));
                         layout.addView(view);
-                    }
-
-                    if (i == tabs.size() - 1) {
+                    }else if (i == tabs.size() - 1) {
                     	// last tab
                     	View view = new View(layout.getContext());
                     	view.setMinimumWidth((int) (60 * density));

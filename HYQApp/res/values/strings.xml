@@ -2,5 +2,16 @@
 
     <string name="app_name">HYQApp</string>
     <string name="titleText">这是标题</string>
-
+    <!-- test -->
+	<string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+    <!-- 菜单选项 -->
+    <string-array name="main_left_menu">
+        <item >登陆</item>
+        <item >首页</item>
+        <item >系统</item>
+        <item >帮助</item>
+        <item >关于</item>
+        <item ></item>
+    </string-array>
 </resources>
