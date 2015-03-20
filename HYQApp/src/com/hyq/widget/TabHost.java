@@ -226,14 +226,15 @@ public class TabHost extends RelativeLayout implements View.OnClickListener {
                         View view = new View(layout.getContext());
                         view.setMinimumWidth((int) (60 * density));
                         layout.addView(view);
-                    }else if (i == tabs.size() - 1) {
+                    }
+                    params = new LinearLayout.LayoutParams(tabWidth, HorizontalScrollView.LayoutParams.MATCH_PARENT);
+                    layout.addView(tab.getView(), params);
+                    if (i == tabs.size() - 1) {
                     	// last tab
                     	View view = new View(layout.getContext());
                     	view.setMinimumWidth((int) (60 * density));
                     	layout.addView(view);
                     }
-                    params = new LinearLayout.LayoutParams(tabWidth, HorizontalScrollView.LayoutParams.MATCH_PARENT);
-                    layout.addView(tab.getView(), params);
 
                 }
             }

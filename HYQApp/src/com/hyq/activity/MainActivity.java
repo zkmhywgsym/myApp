@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -103,7 +104,9 @@ public class MainActivity extends FragmentActivity implements TabListener {
 			map.put("item", item);
 		}
 		data.add(map);
-		navdrawer.setAdapter(new SimpleAdapter(this, data, android.R.layout.simple_list_item_1, new String[]{"item"},new int[]{android.R.id.text1}));
+//		navdrawer.setAdapter(new SimpleAdapter(this, data, android.R.layout.simple_list_item_1, new String[]{"item"},new int[]{android.R.id.text1}));
+		navdrawer.setAdapter(new ArrayAdapter<String>(this,
+	            android.R.layout.simple_list_item_1, android.R.id.text1, items));
 		navdrawer.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

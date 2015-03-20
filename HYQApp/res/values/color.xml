@@ -2,5 +2,7 @@
 
     <color name="titleBarColor">#333333</color>
     <color name="titleTVColor">#ffffff</color>
+    <!-- 左侧菜单背景颜色 -->
+    <color name="leftMenuBG">#ffffff</color>
 
 </resources>
